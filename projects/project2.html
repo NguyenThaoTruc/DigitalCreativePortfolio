@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGUYEN THAO TRUC</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,900;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <!--NAVBAR-->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/index.html" id="navbar__logo">NGUYEN THAO TRUC</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/projects/project1.html" class="navbar__links">Project_1</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/projects/project2.html" class="navbar__links">Project_2</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/projects/project3.html" class="navbar__links">Project_3</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="/index.html" class="button">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="main-p2">
+        <div id="p0">
+        <div class="p0-box" style="margin-bottom: 20px; border-bottom: #70c1b9 solid 60px;">
+            <h2 class="anton-sc-regular fade-in-title" style="font-size: 9rem; color: #70c1b9; text-align: left;">THE GLORY</h2>
+            <h3 class="montserrat-medium fade-in-subtitle" style="color: #70c1b9; padding-bottom: -20px; text-align: left;">A Storytelling Illustration - School Psychological Project</h3>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+        <div id="scroll-notification" style="display:none; position:fixed; top:30px; left:50%; transform:translateX(-50%); background:#222; color: #70c1b9; padding:16px 32px; border-radius:8px; font-family:'Montserrat',sans-serif; font-size:1.2rem; z-index:9999; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+            Please scroll down to activate the project
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            // Wait for both title and subtitle to finish animating
+            gsap.timeline()
+                .to({}, {duration: 2.5}) // 2s title + 1s delay for subtitle
+                .call(function() {
+                document.getElementById('scroll-notification').style.display = 'block';
+                gsap.fromTo(
+                    "#scroll-notification",
+                    { opacity: 0, y: -20 },
+                    { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }
+                );
+                });
+
+            // Hide notification on scroll
+            let notificationShown = true;
+            function hideNotification() {
+                if (notificationShown) {
+                notificationShown = false;
+                gsap.to("#scroll-notification", {
+                    opacity: 0,
+                    y: -20,
+                    duration: 0.5,
+                    ease: "power2.in",
+                    onComplete: function() {
+                    document.getElementById('scroll-notification').style.display = 'none';
+                    }
+                });
+                window.removeEventListener('scroll', hideNotification);
+                }
+            }
+            window.addEventListener('scroll', hideNotification);
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            gsap.fromTo(
+                ".fade-in-title",
+                { opacity: 0 },
+                { opacity: 1, duration: 2, ease: "power2.out" }
+            );
+            gsap.fromTo(
+                ".fade-in-subtitle",
+                { opacity: 0 },
+                { 
+                opacity: 1, 
+                duration: 2, 
+                delay: 1, 
+                ease: "power2.out",
+                // Remove scrollTo if #p1-pg-cv does not exist
+                // onComplete: function() {
+                //     gsap.to(window, {
+                //         scrollTo: "#p1-pg-cv",
+                //         duration: 1.2,
+                //         ease: "power2.inOut"
+                //     });
+                // }
+                }
+            );
+            });
+        </script>
+    </div>
+
+    <div class="part1 slide" style="display: flex; align-items: center; gap: 50px; padding: 40px auto">
+        <div class="p1-left-col slide-anim" style="flex: 0 0 65%; display: flex; justify-content: flex-end;">
+            <div class="p1-left-col-ctn image-box" style="width: 100%; display: flex; justify-content: flex-end;">
+                <img src="/images/PIC1 (1)4x.png" alt="The Glory Illustration" class="p1-left-col-img" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+        <div class="p1-right-col slide-anim" style="flex: 1; width:95%">
+            <img src="/images/title4x.png" style="width: 60%; height: auto; margin-bottom: 20px; padding-bottom: 20px; justify-content: center; margin: 0 auto;">
+            <p class="montserrat-medium font-phu" style="text-align: center; font-style: italic; margin-bottom: 30px; color: azure;">(Click on each image to view it in full size.)</p>
+            <p class="montserrat-medium font-chinh" style="text-align: justify; color:#b8fffb; width: 95%; justify-content: center;">
+                Studying at a prestigious high school, I have experienced significant pressure throughout my academic journey, and I recognize that my peers face similar challenges. To address this, I initiated a psychological project aimed at fostering empathy and raising awareness about the critical importance of work-life balance.
+                <br><br>Drawing inspiration from the lily flower, which symbolizes confidence, strength, and beauty, I want to create the process of achieving success through the image of a flower-liked character striving to climb the stairs to reach the pinnacle of glory, and understand more about herself.
+            </p>
+        </div>
+    </div>
+
+    <div class="part2 slide image-box" style="display: flex; align-items: center; gap: 50px; margin-top: 50px; padding-bottom: 40px;">
+        <img class="slide-anim" src="/images/PIC34x.png" alt="" style="width: 100%; height: auto; flex: 0 0 50%;">
+    </div>
+
+    <div class="part3 slide" style="display: flex; align-items: center; gap: 50px; padding-bottom: 40px;">
+        <div class="p3-left-col slide-anim" style="flex: 1; width:95%">
+            <p class="montserrat-medium font-chinh" style="text-align: justify; color:#b8fffb">
+            <span class="montserrat-medium font-chinh" style="text-align: justify; color:#b8fffb; font-style: italic;">The journey begins.</span>
+            <br><br>With her first steps on the stairs, the protagonist encounters several flower buds, much like herself—carefree and immature as she faces the initial hardships. As she ascends, the flowers bloom more beautifully with each step. However, along with their floral elegance, she begins to notice the increasing presence of thorny vines, which instill fear, uncertainty, and hesitation whenever she prepares to move forward.
+            <br><br>Determined enough, she overcomes her deep feelings of unease and finally reaches the top of the stairs, where she discovers the light of her inner soul.
+            </p>
+        </div>
+        <div class="p3-right-col slide-anim" style="flex: 0 0 70%; display: flex; justify-content: flex-end;">
+            <div class="p3-right-col-ctn image-box" style="width: 100%; display: flex; justify-content: flex-end;">
+            <img src="/images/PIC44x.png" alt="The Glory Illustration" class="p3-right-col-img" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+
+    <div class="part4 slide" style="display: flex; align-items: center; gap: 20px; padding-bottom: 60px;">
+        <div class="p4-left-col slide-anim" style="flex: 0 0 70%; display: flex; justify-content: flex-end;">
+            <div class="p4-left-col-ctn image-box" style="width: 100%; display: flex; justify-content: flex-end;">
+                <img src="/images/PIC54x.png" alt="The Glory Illustration" class="p1-left-col-img" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+        <div class="p1-right-col slide-anim" style="flex: 1; width:100%">
+            <div class="image-box">
+                <img src="/images/PIC64x.png" alt="" style="width: 100%; height: auto;">
+            </div>
+            
+            <p class="montserrat-medium font-chinh" style="text-align: justify; color: #b8fffb;"><br>In the grasp of the shining light, she realizes both her strength and, at the same time, her vulnerability. Throughout her journey, challenges and difficulties have severely "injured" her without her being aware, as she was solely focused on her goal.
+            <br>Now, she understands that while success is important, it’s even more crucial to learn to 
+            </p>
+            <p style="font-style: italic; color: white; font-weight: bold;" class="montserrat-medium font-chinh" style="margin-top: 10px;">“Love yourself, know your abilities, and rest whenever you feel the need.”</p>
+            <p class="montserrat-medium font-chinh" style="margin-top: 5px; text-align: justify; color: #b8fffb">This is the message I want to convey through the story.
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // For each slide
+        document.querySelectorAll('.slide').forEach((slide, i) => {
+            const animEls = slide.querySelectorAll('.slide-anim');
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: slide,
+                    start: "top top", // Trigger when top of section hits top of viewport
+                    scrub: 0.5,      // Smooth out the scroll animation
+                    end: "+=100%",
+                    scrub: false,
+                    pin: true,
+                    pinSpacing: true,
+                    anticipatePin: 1,
+                    snap: 1,
+                    onEnter: () => {},
+                    onLeave: () => {},
+                    onEnterBack: () => {},
+                    onLeaveBack: () => {},
+                }
+            });
+
+            animEls.forEach((el, idx) => {
+                tl.fromTo(el, 
+                    { x: -100, opacity: 0 }, 
+                    { x: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 
+                    idx * 0.3 // stagger
+                );
+            });
+        });
+    });
+    </script>
+
+    <div id="popup" class="popup">
+        <span class="close">&times;</span>
+        <img class="popup-content" id="popup-image">
+        <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next" onclick="changeImage(1)">&#10095;</a>
+    </div>
+</div>
+</div>
+
+    <!--FOOTER-->
+    <footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Link</h4>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/projects/project1.html">Project 1</a></li>
+                <li><a href="/projects/project2.html">Project 2</a></li>
+                <li><a href="/projects/project3.html">Project 3</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Address: 264/10/17/15 Lê Văn Lương, Tân Hương Ward, D7, Ho Chi Minh City</p>
+            <p>Email: marythaotruc@gmail.com</p>
+            <p>Phone No: +84 773918933</p>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Social Media</h4>
+            <ul>
+                <li><a href="https://www.facebook.com/nguyen.truc.727448/"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                <li><a href="https://www.instagram.com/ttrucnguyen._/"><i class="fab fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="copyright">
+    <p>&copy; 2025 Nguyen Thao Truc. All rights reserved.</p>
+    </div>
+    </footer>
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
